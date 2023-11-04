@@ -4,7 +4,64 @@ import time
 
 # TODO
 # your partner's IP address
-ipPartner = "127.0.0.69"
+ipPartner = "192.168.2.100"
+
+def getCommObj(color):
+    #create comminucator basaed on color and return
+    1
+
+class FuncThread:
+    def __init__(self, function, args = None):
+        self.f = function
+        self.args = args
+    def run(self):
+        if args is not None:
+            self.f(self.args)
+        else:
+            self.f()
+
+class Communicator:
+    def __init__(self, lPort, sPort, callback):
+        self.sPort = sPort
+        self.lPort = lPort
+        self.cb = cb
+
+        # socket startup
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            s.bind(('', self.lPort))
+            s.listen()
+            conn, address = s.accept()
+            self.connectionSocket = conn
+            print('Connected by', address)
+
+        seld.start_recv_moves()
+
+
+    def send(self, data):
+        conn.sendall( data.encode('ASCII'))
+
+    def recv(self):
+        while 1:
+            data = conn.recv(1024)
+            if not data:
+                break
+            self.cb(data)
+
+    def start_recv(self):
+        t = FuncThread(self.recv_moves)
+        t.start()
+
+    def start_send(self, data):
+        t = FuncThread(self.send_move, move)
+        t.start()
+
+    def close_connection(self):
+        start_send('')
+
+
+
+
+
 
 
 ########################################################################################################################
@@ -21,7 +78,7 @@ class RecvThread(threading.Thread):
         while 1:
             data, addr = s.recvfrom(1024)  # 7 bytes needed (4 numbers, 3 blanks)
             self.callback(data)
-        print("finishing receiving thread",)
+        # print("finishing receiving thread")
 
 class SendThread(threading.Thread):
     def __init__(self, ip, port):

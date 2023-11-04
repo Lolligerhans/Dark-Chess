@@ -21,6 +21,15 @@ def coordOnBoard(coords):
     else:
         return False
 
+def stringToMove(data):
+    list = data.split()
+    #      (    x1      ,       y1    ), (      x2    ,    y2       )
+    return (int(list[0]), int(list[1])), (int(list[2]), int(list[3]))
+
+
+def moveToString((origin, target)):
+    return str(origin[0]) + ' ' + str(origin[1]) + ' ' + str(target[0]) + ' ' + str(target[1])
+
 
 def zwischensquares(move):
     x1, y1 = move[0]
@@ -133,7 +142,7 @@ class Board:
     def move(self, origin, target, sendToPartner=False):
 
         # allowing to cancel picking up a piece
-        if origin == target:
+        if origin == target
             print("move cancelled")
             return
 
@@ -158,7 +167,7 @@ class Board:
                 port = 60000
             tOut = connection.SendThread(connection.ipPartner, port)
             tOut.set_move(origin, target)  # store the move to be send in object
-            tOut.start()  # send the stored move
+            tOut.start()                   # send the stored move
 
         # move pieces
         indOrigin = coordToIndex(origin)
