@@ -1,0 +1,21 @@
+Checkout v0.1.0
+
+1. Set ipPartner at the top of file connection.py
+2. python3 dark_chess.py
+3. Enter "w" or "b" to select colour.
+4. Turn indicator at the top left changes by making moves.
+
+-----
+
+- There is no promotion
+- Castle by quickly making two moves without capturing your own pieces
+- En-passant by making 2 moves
+
+(!) You can move at any time.
+(!) Sliding moves will capture any piece hit first
+(!) You can make any illegal move.
+(!) You can make moves and capture pieces with empty squares.
+
+-----
+
+- Uses UDP so play on LAN
